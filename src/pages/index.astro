@@ -17,11 +17,21 @@ const thesisUrl =
     <meta name="description" content={description} />
     <link rel="canonical" href="https://finlaymccall.com/" />
 
-    <!-- Open Graph (add an og:image before any wider sharing) -->
+    <!-- Open Graph (link previews on LinkedIn, etc.) -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content="https://finlaymccall.com/" />
+    <meta property="og:image" content="https://finlaymccall.com/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Dr Finlay McCall, applied AI approached through education" />
+
+    <!-- Twitter / X card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://finlaymccall.com/og-image.png" />
 
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 
@@ -63,7 +73,7 @@ const thesisUrl =
             keep learning after I leave.
           </p>
           <a class="cta" data-email href="#contact">
-            Email Finlay to start the conversation <span class="arrow" aria-hidden="true">&rarr;</span>
+            Email me to start the conversation <span class="arrow" aria-hidden="true">&rarr;</span>
           </a>
         </div>
       </section>
