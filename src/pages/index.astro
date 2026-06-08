@@ -1,0 +1,287 @@
+---
+import "../styles/global.css";
+
+const title = "Finlay McCall — Applied human and artificial intelligence";
+const description =
+  "Dr Finlay McCall helps individuals and teams collaborate with AI. An applied-AI expert and educator bringing an educational perspective to practical AI.";
+const thesisUrl =
+  "https://researchprofiles.canberra.edu.au/en/studentTheses/anticipating-curriculum-and-course-design-for-humanai-collaborati/";
+---
+
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href="https://finlaymccall.com/" />
+
+    <!-- Open Graph (add an og:image before any wider sharing) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content="https://finlaymccall.com/" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <!-- Fonts. Self-hosting via @fontsource is the perf/privacy upgrade for later. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <a class="wordmark" href="/">Finlay McCall</a>
+        <nav class="nav" aria-label="Primary">
+          <a href="#what-i-do">What I do</a>
+          <a href="#approach">Approach</a>
+          <a href="#about">About</a>
+          <a href="#research">Research</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="hero" aria-label="Introduction">
+        <div class="container">
+          <p class="eyebrow">
+            Applied human and artificial intelligence, approached through education
+          </p>
+          <h1>I help individuals and teams collaborate with AI.</h1>
+          <p class="lede">
+            I bring an educational perspective to applied AI: how people understand
+            these systems, how they communicate with them, and how they build useful
+            human-AI routines in their own work.
+          </p>
+          <a class="cta" data-email href="#contact">
+            Start a conversation <span class="arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- What I do -->
+      <section id="what-i-do" aria-labelledby="what-i-do-title">
+        <div class="container">
+          <h2 id="what-i-do-title" class="section-title">What I do</h2>
+          <p>
+            Most people do not need to become AI specialists. They need enough
+            understanding to use AI well in their own field, and a guide who can get
+            them there without wasting their time. That is what I do. I work with
+            individuals and teams in any domain, and I translate the fast-moving world
+            of practical AI into something you can actually use.
+          </p>
+
+          <div class="offer">
+            <div class="item">
+              <h3>A conversation</h3>
+              <p>
+                If you are curious and want to explore what is possible, with an expert
+                beside you.
+              </p>
+            </div>
+            <div class="item">
+              <h3>Hands-on coaching</h3>
+              <p>
+                If you or your team want to become genuinely capable with AI, and
+                quickly.
+              </p>
+            </div>
+            <div class="item">
+              <h3>A strategy review</h3>
+              <p>
+                If your organisation needs a clear view of where AI fits, where it does
+                not, and how you are positioned.
+              </p>
+            </div>
+          </div>
+
+          <p class="closing">
+            Whatever the level, the aim is the same. You should come away more capable
+            and more confident in your own judgement, not more dependent on mine.
+          </p>
+        </div>
+      </section>
+
+      <!-- My approach -->
+      <section id="approach" aria-labelledby="approach-title">
+        <div class="container prose">
+          <h2 id="approach-title" class="section-title">My approach</h2>
+          <p>
+            I come to AI from education, not engineering. Twenty years of teaching, much
+            of it teaching English as a second language, taught me how people learn
+            unfamiliar systems of communication and judgement. That matters for AI.
+            Effective use depends on how we talk to these systems, how we interpret what
+            they return, and how we decide when their outputs are useful.
+          </p>
+          <p>
+            That framing is not a metaphor I reach for casually. It grew out of
+            <a href={thesisUrl}>my doctoral research</a> and my research team at the
+            University of Canberra, where I studied how people and AI systems can be
+            taught to work together deliberately, and over time.
+          </p>
+          <p>
+            The idea of AI as a language is useful here, but it is not the whole point.
+            My broader focus is applied human and artificial intelligence: the practical
+            relationship between people, AI systems, work, communication, and judgement.
+            That is what distinguishes this from generic AI consulting. The aim is not
+            only to configure better tools, but to develop better human-AI practice.
+          </p>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section id="about" aria-labelledby="about-title">
+        <div class="container prose">
+          <h2 id="about-title" class="section-title">About</h2>
+          <p>
+            I am Dr Finlay McCall, an independent researcher and educator based in
+            Australia. I hold a PhD in Education from the University of Canberra. My
+            thesis, <em>Anticipating Curriculum and Course Design for Human-AI
+            Collaboration</em>, examined how we design learning for the cognitive
+            partnership between people and machines. I continue that line of work today,
+            developing new approaches to human-machine education that extend my doctoral
+            research.
+          </p>
+          <p>
+            Alongside my own practice, I am Project Manager and Research Assistant on a
+            University of Canberra and ACT Education Directorate research project on
+            teachers' use of generative AI in schools, led by A/Prof Eleni Petraki.
+          </p>
+          <p>
+            My background spans more than twenty years in education across Europe, Asia,
+            and Australia, including work as a CELTA Teacher Trainer and IELTS Examiner.
+            I hold a Master of Education (TESOL) from the University of Sydney and the
+            Cambridge DELTA. Pedagogy is the thread that runs through all of it, and it
+            is what I bring to working with AI.
+          </p>
+        </div>
+      </section>
+
+      <!-- Selected research and publications -->
+      <section id="research" aria-labelledby="research-title">
+        <div class="container">
+          <h2 id="research-title" class="section-title">
+            Selected research and publications
+          </h2>
+          <p class="intro">
+            My work in this area is grounded in peer-reviewed research, including a
+            contribution to <em>Philosophical Transactions of the Royal Society A</em>.
+          </p>
+          <ul class="pubs">
+            <li>
+              <span class="year">2025</span>
+              <span class="cite">
+                <strong>PhD thesis.</strong>
+                <a href={thesisUrl}
+                  ><em>Anticipating Curriculum and Course Design for Human-AI
+                    Collaboration</em></a
+                >, University of Canberra.
+              </span>
+            </li>
+            <li>
+              <span class="year">2021</span>
+              <span class="cite">
+                Abbass, H., Petraki, E., Hussein, A., McCall, F., &amp; Elsawah, S.
+                (2021). A model of symbiomemesis: machine education and communication as
+                pillars for human-autonomy symbiosis.
+                <em>Philosophical Transactions of the Royal Society A</em>.
+                <a href="https://doi.org/10.1098/rsta.2020.0364">doi.org/10.1098/rsta.2020.0364</a>
+              </span>
+            </li>
+            <li>
+              <span class="year">2021</span>
+              <span class="cite">
+                McCall, F., Hussein, A., Petraki, E., Elsawah, S., &amp; Abbass, H.
+                (2021). Towards a systematic educational framework for human-machine
+                teaming. <em>IEEE International Conference on Engineering, Technology
+                &amp; Education (TALE)</em>, 375&ndash;382.
+                <a href="https://doi.org/10.1109/TALE52509.2021.9678853">doi.org/10.1109/TALE52509.2021.9678853</a>
+              </span>
+            </li>
+            <li>
+              <span class="year">2020</span>
+              <span class="cite">
+                McCall, F. (2020). Action research: using Turnitin peer feedback
+                assignments to improve academic English writing skills.
+                <em>IATEFL Research SIG</em>, 35.
+              </span>
+            </li>
+            <li>
+              <span class="year">2018</span>
+              <span class="cite">
+                McCall, F. (2018). Using social media in the classroom.
+                <em>English Australia Journal</em>, 33(1).
+              </span>
+            </li>
+            <li>
+              <span class="year">2017</span>
+              <span class="cite">
+                McCall, F. (2017). Using microblogs on Facebook to develop students'
+                academic reading and writing skills.
+                <em>University of Sydney Papers in TESOL</em>, 12.
+              </span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" aria-labelledby="contact-title">
+        <div class="container">
+          <h2 id="contact-title" class="section-title">Contact</h2>
+          <p>
+            The best way to find out whether I can help is to talk. Tell me what you are
+            working on and where AI might fit, and we will take it from there.
+          </p>
+          <div class="contact-lines">
+            <a data-email data-email-text href="#"
+              ><noscript>hi [at] finlaymccall.com</noscript></a
+            >
+            <a href="https://www.linkedin.com/in/finlay-mccall-39079725/">LinkedIn</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <span>&copy; 2026 Finlay McCall</span>
+        <span class="links">
+          <a href="https://orcid.org/0000-0003-1397-1212">ORCID</a>
+          <a href="https://scholar.google.com/citations?hl=en&user=I4O0mMwAAAAJ">Google Scholar</a>
+          <a href="https://www.researchgate.net/profile/Finlay-Mccall">ResearchGate</a>
+          <a href="https://www.linkedin.com/in/finlay-mccall-39079725/">LinkedIn</a>
+          <a href="https://github.com/drfinlaymccall">GitHub</a>
+        </span>
+      </div>
+    </footer>
+
+    <!--
+      Email obfuscation: the address is never written as plain text in the markup.
+      It is assembled at runtime from parts, so scrapers reading the static HTML do
+      not find a harvestable mailto. Cloudflare's email obfuscation adds a second layer.
+    -->
+    <script is:inline>
+      (function () {
+        var user = "hi";
+        var domain = "finlaymccall.com";
+        var addr = user + "@" + domain;
+        var nodes = document.querySelectorAll("[data-email]");
+        for (var i = 0; i < nodes.length; i++) {
+          nodes[i].setAttribute("href", "mailto:" + addr);
+          if (nodes[i].hasAttribute("data-email-text")) {
+            nodes[i].textContent = addr;
+          }
+        }
+      })();
+    </script>
+  </body>
+</html>
