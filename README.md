@@ -1,6 +1,6 @@
 # finlaymccall.com
 
-The personal site of Dr Finlay McCall: applied-AI expert and educator. A single-page,
+The personal site of Dr Finlay McCall: educator, researcher, and applied-AI consultant. A single-page,
 static "digital business card" built with [Astro](https://astro.build) and deployed to
 Cloudflare Pages.
 
