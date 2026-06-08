@@ -137,6 +137,7 @@ section:first-of-type {
   text-transform: uppercase;
   color: var(--accent);
   margin-bottom: 1.25rem;
+  max-width: none; /* it is a <p>, so override the 62ch body cap that forced a wrap */
 }
 
 .section-title {
