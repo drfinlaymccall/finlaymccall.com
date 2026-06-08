@@ -1,9 +1,9 @@
 ---
 import "../styles/global.css";
 
-const title = "Finlay McCall — Applied human and artificial intelligence";
+const title = "Finlay McCall — Work better with AI";
 const description =
-  "Dr Finlay McCall helps people build better working relationships with AI, using education to build judgement, routines, and lasting capability.";
+  "Dr Finlay McCall helps people learn to work better with AI, using education to build judgement, routines, and lasting capability.";
 const thesisUrl =
   "https://researchprofiles.canberra.edu.au/en/studentTheses/anticipating-curriculum-and-course-design-for-humanai-collaborati/";
 ---
@@ -55,15 +55,15 @@ const thesisUrl =
           <p class="eyebrow">
             Applied human and artificial intelligence, approached through education
           </p>
-          <h1>I help people build better working relationships with AI.</h1>
+          <h1>Learn to work better with AI.</h1>
           <p class="lede">
-            AI is now part of ordinary work, but most people have not been taught how
-            to use it well. I help individuals and teams understand these systems,
+            AI is now part of ordinary work, but most people haven't been taught how to
+            use it well. I help individuals and teams understand these systems,
             communicate with them, and build the judgement and routines they need to
             keep learning after I leave.
           </p>
           <a class="cta" data-email href="#contact">
-            Start a conversation <span class="arrow" aria-hidden="true">&rarr;</span>
+            Email Finlay to start the conversation <span class="arrow" aria-hidden="true">&rarr;</span>
           </a>
         </div>
       </section>
@@ -73,12 +73,12 @@ const thesisUrl =
         <div class="container">
           <h2 id="what-i-do-title" class="section-title">What I do</h2>
           <p>
-            Most people do not need a one-off course on the latest AI tool. They need
-            the capacity to keep learning as the tools change.
+            Most people don't need a one-off course on the latest AI tool. They need the
+            capacity to keep learning as the tools change.
           </p>
 
           <p>
-            That is where I come in. I work with individuals and teams who want to use
+            That's where I come in. I work with individuals and teams who want to use
             AI more intelligently in their own context: not by handing judgement over
             to a system, and not by becoming dependent on an outside consultant, but by
             building the habits, confidence, and internal capability to work with AI
@@ -105,7 +105,7 @@ const thesisUrl =
               <h3>A strategy review</h3>
               <p>
                 For organisations that need a clearer view of where AI belongs, where
-                it does not, and what capability they need to build before adoption
+                it doesn't, and what capability they need to build before adoption
                 becomes policy.
               </p>
             </div>
@@ -125,9 +125,9 @@ const thesisUrl =
           <h2 id="approach-title" class="section-title">My approach</h2>
           <p>I come to AI through education.</p>
           <p>
-            That matters because good AI use is not just a matter of knowing which tool
-            to open or which prompt to copy. It is a learning problem. People need to
-            understand what they are trying to do, what the system can and cannot help
+            That matters because good AI use isn't just a matter of knowing which tool
+            to open or which prompt to copy. It's a learning problem. People need to
+            understand what they're trying to do, what the system can and can't help
             with, how to judge the output, and how to keep improving their practice
             over time.
           </p>
@@ -138,7 +138,7 @@ const thesisUrl =
             evaluation methods, and pedagogy that make AI useful in your setting.
           </p>
           <p>
-            That is different from a training course that teaches one tool at one
+            That's different from a training course that teaches one tool at one
             moment in time. Tools change. The point is to build capability that
             survives the next product update.
           </p>
@@ -171,7 +171,7 @@ const thesisUrl =
             />
             <div class="prose">
               <p>
-                I am Dr Finlay McCall, an independent researcher and educator based in
+                I'm Dr Finlay McCall, an independent researcher and educator based in
                 Australia. I hold a PhD in Education from the University of Canberra. My
                 thesis, <em>Anticipating Curriculum and Course Design for Human-AI
                 Collaboration</em>, examined how we design learning for the cognitive
@@ -190,7 +190,7 @@ const thesisUrl =
                 (TESOL) from the University of Sydney and the Cambridge DELTA.
               </p>
               <p>
-                Pedagogy is the thread through all of it. It is the lens I bring to AI.
+                Pedagogy is the thread through all of it. It's the lens I bring to AI.
               </p>
             </div>
           </div>
@@ -270,17 +270,18 @@ const thesisUrl =
         <div class="container">
           <h2 id="contact-title" class="section-title">Contact</h2>
           <p>
-            If you are trying to work out where AI fits into your work, the best place
+            If you're trying to work out where AI fits into your work, the best place
             to start is a conversation.
           </p>
           <p>
-            Tell me what you are working on, what you are unsure about, and what you
+            Tell me what you're working on, what you're unsure about, and what you
             want AI to help with.
           </p>
           <div class="contact-lines">
             <a data-email data-email-text href="#"
               ><noscript>hi [at] finlaymccall.com</noscript></a
             >
+            <a data-phone href="#"><noscript>Phone available with JavaScript enabled</noscript></a>
             <a href="https://www.linkedin.com/in/finlay-mccall-39079725/">LinkedIn</a>
           </div>
         </div>
@@ -301,9 +302,9 @@ const thesisUrl =
     </footer>
 
     <!--
-      Email obfuscation: the address is never written as plain text in the markup.
-      It is assembled at runtime from parts, so scrapers reading the static HTML do
-      not find a harvestable mailto. Cloudflare's email obfuscation adds a second layer.
+      Contact obfuscation: the email address and phone link are assembled at runtime
+      from parts, so scrapers reading the static HTML do not find a plain mailto or
+      tel link. Cloudflare's email obfuscation adds a second layer for the address.
     -->
     <script is:inline>
       (function () {
@@ -316,6 +317,15 @@ const thesisUrl =
           if (nodes[i].hasAttribute("data-email-text")) {
             nodes[i].textContent = addr;
           }
+        }
+
+        var phoneParts = ["+61", "497", "491", "672"];
+        var phone = phoneParts.join(" ");
+        var phoneHref = "tel:" + phoneParts.join("");
+        var phoneNodes = document.querySelectorAll("[data-phone]");
+        for (var j = 0; j < phoneNodes.length; j++) {
+          phoneNodes[j].setAttribute("href", phoneHref);
+          phoneNodes[j].textContent = phone;
         }
       })();
     </script>
