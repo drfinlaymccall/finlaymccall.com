@@ -43,11 +43,8 @@ defeats most automated harvesting. Cloudflare email obfuscation adds a second la
 Mail is handled with a free setup: Cloudflare Email Routing forwards inbound mail to a
 personal inbox, and Gmail "Send mail as" sends and replies as the domain address.
 
-## Deploy (Cloudflare Pages)
+## Deploy
 
-- Framework preset: Astro
-- Build command: `npm run build`
-- Output directory: `dist`
-
-See the deployment guide in the project working directory for the full DNS, Pages, and
-email setup steps.
+The site runs as a Cloudflare Worker (not Cloudflare Pages). See
+[DEPLOYMENT.md](./DEPLOYMENT.md) for the full setup, how deploys are triggered, and
+how to roll back.
