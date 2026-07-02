@@ -1,9 +1,16 @@
 ---
+import "@fontsource/spectral/300.css";
+import "@fontsource/spectral/400.css";
+import "@fontsource/spectral/300-italic.css";
+import "@fontsource/spectral/400-italic.css";
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/500.css";
+import "@fontsource/inter/600.css";
 import "../styles/global.css";
 
-const title = "Finlay McCall — Work better with AI";
+const title = "Dr Finlay McCall — Learn to work better with AI";
 const description =
-  "Dr Finlay McCall helps people learn to work better with AI, using education to build judgement, routines, and lasting capability.";
+  "Dr Finlay McCall is an educator and researcher who helps people and teams build lasting judgement for working with AI. PhD in human-AI collaboration, University of Canberra.";
 const thesisUrl =
   "https://researchprofiles.canberra.edu.au/en/studentTheses/anticipating-curriculum-and-course-design-for-humanai-collaborati/";
 ---
@@ -17,34 +24,53 @@ const thesisUrl =
     <meta name="description" content={description} />
     <link rel="canonical" href="https://finlaymccall.com/" />
 
-    <!-- Open Graph (add an og:image before any wider sharing) -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content="https://finlaymccall.com/" />
+    <meta property="og:image" content="https://finlaymccall.com/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
 
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 
-    <!-- Fonts. Self-hosting via @fontsource is the perf/privacy upgrade for later. -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500&family=Inter:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Opts the page into entrance transitions only when JS is available,
+         so nothing is hidden for no-JS visitors. -->
+    <script is:inline>
+      document.documentElement.classList.add("js");
+    </script>
   </head>
 
   <body>
+    <!-- Duotone filter for the portrait: shadows to deep teal, highlights to paper -->
+    <svg width="0" height="0" aria-hidden="true" style="position:absolute">
+      <filter id="duotone" color-interpolation-filters="sRGB">
+        <feColorMatrix
+          type="matrix"
+          values="0.2126 0.7152 0.0722 0 0
+                  0.2126 0.7152 0.0722 0 0
+                  0.2126 0.7152 0.0722 0 0
+                  0 0 0 1 0"></feColorMatrix>
+        <feComponentTransfer>
+          <feFuncR type="table" tableValues="0.086 0.980"></feFuncR>
+          <feFuncG type="table" tableValues="0.212 0.973"></feFuncG>
+          <feFuncB type="table" tableValues="0.188 0.957"></feFuncB>
+        </feComponentTransfer>
+      </filter>
+    </svg>
+
     <header class="site-header">
       <div class="container">
-        <a class="wordmark" href="/">Finlay McCall</a>
-        <nav class="nav" aria-label="Primary">
-          <a href="#what-i-do">What I do</a>
-          <a href="#approach">Approach</a>
-          <a href="#about">About</a>
-          <a href="#research">Research</a>
-          <a href="#contact">Contact</a>
-        </nav>
+        <a class="wordmark" href="/">Dr Finlay McCall</a>
+        <div class="header-right">
+          <nav class="nav" aria-label="Primary">
+            <a href="#work">Work with me</a>
+            <a href="#approach">Approach</a>
+            <a href="#about">About</a>
+          </nav>
+          <a class="btn btn-small" href="#contact">Get in touch</a>
+        </div>
       </div>
     </header>
 
@@ -52,161 +78,179 @@ const thesisUrl =
       <!-- Hero -->
       <section class="hero" aria-label="Introduction">
         <div class="container">
-          <p class="eyebrow">
-            Applied human and artificial intelligence, approached through education
-          </p>
-          <h1>Learn to work better with AI.</h1>
-          <p class="lede">
-            AI is now part of ordinary work, but most people haven't been taught how to
-            use it well. I help individuals and teams understand these systems,
-            communicate with them, and build the judgement and routines they need to
-            keep learning after I leave.
-          </p>
-          <a class="cta" data-email href="#contact">
-            Email Finlay to start the conversation <span class="arrow" aria-hidden="true">&rarr;</span>
-          </a>
+          <div class="hero-text">
+            <p class="eyebrow">Educator &amp; researcher &middot; Canberra, Australia</p>
+            <h1>Most AI training teaches tools. <span class="no-wrap-wide">I teach judgement.</span></h1>
+            <p class="lede">
+              AI is now part of ordinary work, but almost no one has been taught to
+              use it well. I'm an educator with a doctorate in human&ndash;AI
+              collaboration, and I help people and teams build the judgement to use
+              AI on their own terms.
+            </p>
+            <div class="hero-cta">
+              <a class="btn" data-email href="#contact">
+                Start a conversation <span class="arrow" aria-hidden="true">&rarr;</span>
+              </a>
+              <span class="alt">
+                or write to <a data-email data-email-text href="#contact"
+                  ><noscript>hi [at] finlaymccall.com</noscript></a
+                >
+              </span>
+            </div>
+            <p class="credentials-strip">
+              <span class="cred-item">PhD, Human&ndash;AI Collaboration</span><span
+                class="sep"
+                aria-hidden="true">&middot;</span
+              ><span class="cred-item">University of Canberra</span><span
+                class="sep"
+                aria-hidden="true">&middot;</span
+              ><span class="cred-item">Published in Phil. Trans. of the Royal Society&nbsp;A</span>
+            </p>
+          </div>
+          <img
+            class="hero-portrait"
+            src="/finlay-mccall.jpg"
+            width="450"
+            height="450"
+            alt="Dr Finlay McCall"
+            loading="eager"
+            fetchpriority="high"
+          />
         </div>
       </section>
 
-      <!-- What I do -->
-      <section id="what-i-do" aria-labelledby="what-i-do-title">
+      <!-- Work with me -->
+      <section id="work" class="reveal" aria-labelledby="work-title">
         <div class="container">
-          <h2 id="what-i-do-title" class="section-title">What I do</h2>
-          <p>
-            Most people don't need a one-off course on the latest AI tool. They need the
-            capacity to keep learning as the tools change.
-          </p>
-
-          <p>
-            That's where I come in. I work with individuals and teams who want to use
-            AI more intelligently in their own context: not by handing judgement over
-            to a system, and not by becoming dependent on an outside consultant, but by
-            building the habits, confidence, and internal capability to work with AI
-            well.
+          <h2 id="work-title" class="section-title">Work with me</h2>
+          <p class="section-lede">
+            Most people don't need a one-off course on the latest AI tool. They need
+            the capacity to keep learning as the tools change.
           </p>
 
           <div class="offer">
             <div class="item">
-              <h3>A focused conversation</h3>
+              <h3>Advisory conversation</h3>
               <p>
-                For people who are curious, uncertain, or trying to work out what AI
-                might mean for their field.
+                One session to work out what AI actually means for your role or
+                field &mdash; what to take seriously, what to ignore, and what to
+                try first.
               </p>
             </div>
             <div class="item">
-              <h3>Hands-on coaching</h3>
+              <h3>Coaching &amp; workshops</h3>
               <p>
-                For individuals or teams who want to improve how they use AI in
-                everyday work: writing, research, planning, analysis, communication, or
-                internal workflows.
+                Ongoing work with individuals or teams on the AI in your real
+                workflows &mdash; writing, research, analysis &mdash; until good use
+                is a habit, not an event.
               </p>
             </div>
             <div class="item">
-              <h3>A strategy review</h3>
+              <h3>AI capability review</h3>
               <p>
-                For organisations that need a clearer view of where AI belongs, where
-                it doesn't, and what capability they need to build before adoption
-                becomes policy.
+                For organisations deciding where AI belongs and where it doesn't
+                &mdash; and what your people need to learn before adoption becomes
+                policy.
               </p>
             </div>
           </div>
 
           <p class="closing">
-            Whatever the format, the aim is the same. You should come away with better
-            judgement, better routines, and more capacity to manage your own
-            relationship with AI.
+            Not sure which fits? <a data-email href="#contact">Start with an email
+            <span aria-hidden="true">&rarr;</span></a>
           </p>
         </div>
       </section>
 
       <!-- My approach -->
-      <section id="approach" aria-labelledby="approach-title">
-        <div class="container prose">
-          <h2 id="approach-title" class="section-title">My approach</h2>
-          <p>I come to AI through education.</p>
-          <p>
-            That matters because good AI use isn't just a matter of knowing which tool
-            to open or which prompt to copy. It's a learning problem. People need to
-            understand what they're trying to do, what the system can and can't help
-            with, how to judge the output, and how to keep improving their practice
-            over time.
-          </p>
-          <p>
-            My work usually begins with some form of needs analysis. What are you
-            trying to do? What do people already know? Where are the risks, gaps,
-            habits, and opportunities? From there, I help shape the content, routines,
-            evaluation methods, and pedagogy that make AI useful in your setting.
-          </p>
-          <p>
-            That's different from a training course that teaches one tool at one
-            moment in time. Tools change. The point is to build capability that
-            survives the next product update.
-          </p>
-          <p>
-            This framing grew out of <a href={thesisUrl}>my doctoral research</a> at
-            the University of Canberra, where I studied how people and AI systems can
-            be prepared to work together deliberately over time.
-          </p>
-          <p>
-            I sometimes describe AI as a language, but that is only part of it. My
-            broader focus is applied human and artificial intelligence: the practical
-            relationship between people, AI systems, work, communication, learning, and
-            judgement.
-          </p>
-        </div>
-      </section>
-
-      <!-- About -->
-      <section id="about" aria-labelledby="about-title">
+      <section id="approach" class="reveal" aria-labelledby="approach-title">
         <div class="container">
-          <h2 id="about-title" class="section-title">About</h2>
-          <div class="about-grid">
-            <img
-              class="portrait"
-              src="/finlay-mccall.jpg"
-              width="450"
-              height="450"
-              alt="Dr Finlay McCall"
-              loading="lazy"
-            />
-            <div class="prose">
-              <p>
-                I'm Dr Finlay McCall, an independent researcher and educator based in
-                Australia. I hold a PhD in Education from the University of Canberra. My
-                thesis, <em>Anticipating Curriculum and Course Design for Human-AI
-                Collaboration</em>, examined how we design learning for the cognitive
-                partnership between people and machines. I continue that line of work
-                today through research and practice in human-machine education.
-              </p>
-              <p>
-                Alongside my own practice, I am Project Manager and Research Assistant on
-                a University of Canberra and ACT Education Directorate research project on
-                teachers' use of generative AI in schools, led by A/Prof Eleni Petraki.
-              </p>
-              <p>
-                Before this work, I spent more than twenty years in education across
-                Europe, Asia, and Australia. My background includes work as a CELTA
-                Teacher Trainer and IELTS Examiner. I hold a Master of Education
-                (TESOL) from the University of Sydney and the Cambridge DELTA.
-              </p>
-              <p>
-                Pedagogy is the thread through all of it. It's the lens I bring to AI.
-              </p>
-            </div>
+          <h2 id="approach-title" class="section-title">My approach</h2>
+          <div class="prose">
+            <p>
+              I come to AI through education. Good AI use isn't a matter of knowing
+              which tool to open or which prompt to copy &mdash; it's a learning
+              problem. People need to understand what they're trying to do, what the
+              system can and can't help with, how to judge the output, and how to
+              keep improving over time.
+            </p>
+            <p>
+              My work usually begins with a needs analysis: what are you trying to
+              do, what do people already know, and where are the risks, gaps, and
+              opportunities? From there, I shape the content, routines, and
+              evaluation that make AI useful in your setting.
+            </p>
+          </div>
+
+          <blockquote class="pull-quote">
+            Tools change. The point is to build capability that survives the next
+            product update.
+          </blockquote>
+
+          <div class="prose">
+            <p>
+              This framing grew out of <a href={thesisUrl}>my doctoral research</a>
+              at the University of Canberra, where I studied how people and AI
+              systems can be prepared to work together deliberately over time.
+            </p>
           </div>
         </div>
       </section>
 
-      <!-- Selected research and publications -->
-      <section id="research" aria-labelledby="research-title">
+      <!-- About -->
+      <section id="about" class="reveal" aria-labelledby="about-title">
         <div class="container">
-          <h2 id="research-title" class="section-title">
-            Selected research and publications
-          </h2>
-          <p class="intro">
-            My work on human-AI collaboration grows out of education research, machine
-            education, and human-machine teaming.
-          </p>
+          <h2 id="about-title" class="section-title">About</h2>
+          <div class="prose">
+            <p>
+              I'm Dr Finlay McCall, an independent researcher and educator based in
+              Australia. My PhD thesis, <em>Anticipating Curriculum and Course
+              Design for Human-AI Collaboration</em>, examined how we design
+              learning for the cognitive partnership between people and machines
+              &mdash; a line of work I continue today through research and practice
+              in human-machine education.
+            </p>
+            <p class="current-role">
+              I'm currently Project Manager and Research Assistant on a University
+              of Canberra and ACT Education Directorate research project on
+              teachers' use of generative AI in schools, led by A/Prof Eleni
+              Petraki.
+            </p>
+            <p>
+              Before this, I spent more than twenty years teaching across Europe,
+              Asia, and Australia.
+            </p>
+            <p>
+              Pedagogy is the thread through all of it. It's the lens I bring to
+              AI.
+            </p>
+          </div>
+
+          <ul class="creds">
+            <li>
+              <span class="what">PhD in Education</span>
+              <span class="where">University of Canberra</span>
+            </li>
+            <li>
+              <span class="what">Master of Education (TESOL)</span>
+              <span class="where">University of Sydney</span>
+            </li>
+            <li>
+              <span class="what">Cambridge DELTA</span>
+              <span class="where">Diploma in English Language Teaching</span>
+            </li>
+            <li>
+              <span class="what">CELTA Teacher Trainer &amp; IELTS Examiner</span>
+              <span class="where">Twenty years across Europe, Asia, and Australia</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Research -->
+      <section id="research" class="reveal" aria-labelledby="research-title">
+        <div class="container">
+          <h2 id="research-title" class="section-title">Research</h2>
           <ul class="pubs">
             <li>
               <span class="year">2025</span>
@@ -216,16 +260,24 @@ const thesisUrl =
                   ><em>Anticipating Curriculum and Course Design for Human-AI
                     Collaboration</em></a
                 >, University of Canberra.
+                <span class="gloss">
+                  How to design courses and curricula that prepare people to work
+                  with AI deliberately, rather than react to it.
+                </span>
               </span>
             </li>
             <li>
               <span class="year">2021</span>
               <span class="cite">
                 Abbass, H., Petraki, E., Hussein, A., McCall, F., &amp; Elsawah, S.
-                (2021). A model of symbiomemesis: machine education and communication as
-                pillars for human-autonomy symbiosis.
+                (2021). A model of symbiomemesis: machine education and
+                communication as pillars for human-autonomy symbiosis.
                 <em>Philosophical Transactions of the Royal Society A</em>.
                 <a href="https://doi.org/10.1098/rsta.2020.0364">doi.org/10.1098/rsta.2020.0364</a>
+                <span class="gloss">
+                  A model for how humans and autonomous systems can learn from each
+                  other over time &mdash; education as a two-way street.
+                </span>
               </span>
             </li>
             <li>
@@ -233,24 +285,9 @@ const thesisUrl =
               <span class="cite">
                 McCall, F., Hussein, A., Petraki, E., Elsawah, S., &amp; Abbass, H.
                 (2021). Towards a systematic educational framework for human-machine
-                teaming. <em>IEEE International Conference on Engineering, Technology
-                &amp; Education (TALE)</em>, 375&ndash;382.
+                teaming. <em>IEEE International Conference on Engineering,
+                Technology &amp; Education (TALE)</em>, 375&ndash;382.
                 <a href="https://doi.org/10.1109/TALE52509.2021.9678853">doi.org/10.1109/TALE52509.2021.9678853</a>
-              </span>
-            </li>
-            <li>
-              <span class="year">2020</span>
-              <span class="cite">
-                McCall, F. (2020). Action research: using Turnitin peer feedback
-                assignments to improve academic English writing skills.
-                <em>IATEFL Research SIG</em>, 35.
-              </span>
-            </li>
-            <li>
-              <span class="year">2018</span>
-              <span class="cite">
-                McCall, F. (2018). Using social media in the classroom.
-                <em>English Australia Journal</em>, 33(1).
               </span>
             </li>
             <li>
@@ -262,26 +299,28 @@ const thesisUrl =
               </span>
             </li>
           </ul>
+          <p class="pubs-more">
+            Full list on
+            <a href="https://scholar.google.com/citations?hl=en&user=I4O0mMwAAAAJ"
+              >Google Scholar <span aria-hidden="true">&rarr;</span></a
+            >
+          </p>
         </div>
       </section>
 
       <!-- Contact -->
-      <section id="contact" aria-labelledby="contact-title">
+      <section id="contact" class="contact reveal" aria-labelledby="contact-title">
         <div class="container">
-          <h2 id="contact-title" class="section-title">Contact</h2>
+          <h2 id="contact-title" class="section-title">Start a conversation</h2>
           <p>
-            If you're trying to work out where AI fits into your work, the best place
-            to start is a conversation.
+            If you're trying to work out where AI fits into your work, the best
+            place to start is a conversation. Tell me what you're working on, what
+            you're unsure about, and what you want AI to help with.
           </p>
-          <p>
-            Tell me what you're working on, what you're unsure about, and what you
-            want AI to help with.
-          </p>
+          <a class="contact-email" data-email data-email-text href="#"
+            ><noscript>hi [at] finlaymccall.com</noscript></a
+          >
           <div class="contact-lines">
-            <a data-email data-email-text href="#"
-              ><noscript>hi [at] finlaymccall.com</noscript></a
-            >
-            <a data-phone href="#"><noscript>Phone available with JavaScript enabled</noscript></a>
             <a href="https://www.linkedin.com/in/finlay-mccall-39079725/">LinkedIn</a>
           </div>
         </div>
@@ -290,7 +329,7 @@ const thesisUrl =
 
     <footer class="site-footer">
       <div class="container">
-        <span>&copy; 2026 Finlay McCall</span>
+        <span>&copy; 2026 Dr Finlay McCall</span>
         <span class="links">
           <a href="https://orcid.org/0000-0003-1397-1212">ORCID</a>
           <a href="https://scholar.google.com/citations?hl=en&user=I4O0mMwAAAAJ">Google Scholar</a>
@@ -302,9 +341,9 @@ const thesisUrl =
     </footer>
 
     <!--
-      Contact obfuscation: the email address and phone link are assembled at runtime
-      from parts, so scrapers reading the static HTML do not find a plain mailto or
-      tel link. Cloudflare's email obfuscation adds a second layer for the address.
+      Contact obfuscation: the email address is assembled at runtime from parts,
+      so scrapers reading the static HTML do not find a plain mailto link.
+      Cloudflare's email obfuscation adds a second layer for the address.
     -->
     <script is:inline>
       (function () {
@@ -318,15 +357,36 @@ const thesisUrl =
             nodes[i].textContent = addr;
           }
         }
+      })();
+    </script>
 
-        var phoneParts = ["+61", "497", "491", "672"];
-        var phone = phoneParts.join(" ");
-        var phoneHref = "tel:" + phoneParts.join("");
-        var phoneNodes = document.querySelectorAll("[data-phone]");
-        for (var j = 0; j < phoneNodes.length; j++) {
-          phoneNodes[j].setAttribute("href", phoneHref);
-          phoneNodes[j].textContent = phone;
+    <!-- Fade-up on section entry; runs once per section, skipped when the
+         visitor prefers reduced motion. -->
+    <script is:inline>
+      (function () {
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          document.documentElement.classList.remove("js");
+          return;
         }
+        var sections = document.querySelectorAll(".reveal");
+        if (!("IntersectionObserver" in window)) {
+          document.documentElement.classList.remove("js");
+          return;
+        }
+        var observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { rootMargin: "0px 0px -10% 0px" }
+        );
+        sections.forEach(function (el) {
+          observer.observe(el);
+        });
       })();
     </script>
   </body>

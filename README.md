@@ -18,9 +18,11 @@ npm run preview  # preview the production build locally
 ```
 src/
   pages/index.astro     the whole page
-  styles/global.css     all styles; palette and type live in :root variables
+  styles/global.css     all styles; palette, type, and spacing live in :root variables
 public/
   favicon.svg
+  finlay-mccall.jpg     portrait (duotoned at render time by an inline SVG filter)
+  og.png                social sharing image (1200x630)
   robots.txt
 astro.config.mjs        site URL and sitemap integration
 ```
@@ -29,8 +31,8 @@ astro.config.mjs        site URL and sitemap integration
 
 All copy lives in `src/pages/index.astro`. To retune the look (colours, fonts, spacing),
 edit the `:root` variables at the top of `src/styles/global.css`. The site uses Spectral
-(serif headings) and Inter (sans body) via Google Fonts; self-hosting them with
-`@fontsource` is a later performance and privacy upgrade.
+(serif headings) and Inter (sans body), self-hosted via `@fontsource` packages imported
+at the top of `index.astro`.
 
 ## Contact email
 

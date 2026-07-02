@@ -1,25 +1,37 @@
 /*
   finlaymccall.com - global styles
-  Design: considered, editorial, calm. Serif headings, sans body, warm paper
-  background, a single deep-teal accent. All palette and type choices live in the
-  :root variables below, so the whole look can be retuned from one place.
+  Design: considered, editorial, calm. A university-press book, not a SaaS page.
+  Serif headings (Spectral), sans body (Inter), warm paper background, a single
+  deep-teal accent. Three registers: loud (hero, pull-quote), structured (offers,
+  publications, credentials), quiet (prose). Palette, type, and spacing live in
+  the :root variables so the whole look can be retuned from one place.
 */
 
 :root {
   /* palette */
   --bg: #faf8f4;          /* warm off-white paper, never pure white */
+  --bg-tint: #f2efe7;     /* faint tinted band, used once (contact) */
   --ink: #1c1b19;         /* near-black charcoal for text */
   --muted: #5d5a54;       /* secondary text */
   --accent: #1e4d45;      /* deep teal-green, used sparingly */
+  --accent-dark: #143630; /* hover state for filled elements */
   --rule: #e2ddd3;        /* hairline rules and borders */
 
   /* type */
   --serif: "Spectral", Georgia, "Times New Roman", serif;
   --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
 
+  /* spacing scale */
+  --s-1: 0.5rem;
+  --s-2: 1rem;
+  --s-3: 2rem;
+  --s-4: 4rem;
+  --s-5: 8rem;
+
   /* layout */
-  --maxw: 900px;
+  --maxw: 1040px;
   --pad: clamp(1.25rem, 5vw, 2.5rem);
+  --section: clamp(4rem, 10vw, 8.5rem);
 }
 
 /* minimal reset */
@@ -35,6 +47,12 @@ html {
   scroll-behavior: smooth;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 body {
   background: var(--bg);
   color: var(--ink);
@@ -45,7 +63,7 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* the single centred reading column */
+/* the centred column */
 .container {
   max-width: var(--maxw);
   margin-inline: auto;
@@ -70,10 +88,17 @@ a {
   color: var(--accent);
   text-underline-offset: 0.18em;
   text-decoration-thickness: 1px;
+  transition: text-decoration-thickness 0.15s ease;
 }
 
 a:hover {
   text-decoration-thickness: 2px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 
 em,
@@ -81,32 +106,71 @@ cite {
   font-style: italic;
 }
 
+/* ---------- buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: var(--accent);
+  color: var(--bg);
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 0.85rem 1.5rem;
+  border-radius: 4px;
+  transition: background 0.15s ease;
+}
+
+.btn:hover {
+  background: var(--accent-dark);
+}
+
+.btn .arrow {
+  transition: transform 0.15s ease;
+}
+
+.btn:hover .arrow {
+  transform: translateX(3px);
+}
+
+.btn-small {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
 /* ---------- header / nav ---------- */
 .site-header {
-  padding-block: 1.75rem;
+  padding-block: 1.5rem;
+  border-bottom: 1px solid var(--rule);
 }
 
 .site-header .container {
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   gap: 0.75rem 1.5rem;
-  border-bottom: 1px solid var(--rule);
-  padding-bottom: 1.75rem;
 }
 
 .wordmark {
   font-family: var(--serif);
-  font-size: 1.3rem;
+  font-size: 1.35rem;
   color: var(--ink);
   text-decoration: none;
+  white-space: nowrap;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
 }
 
 .nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.4rem;
+  gap: 1.5rem;
   font-size: 0.95rem;
 }
 
@@ -121,68 +185,115 @@ cite {
 
 /* ---------- sections ---------- */
 section {
-  padding-block: clamp(3rem, 8vw, 5rem);
-  border-top: 1px solid var(--rule);
-}
-
-section:first-of-type {
-  border-top: 0;
+  padding-block: var(--section);
 }
 
 .eyebrow {
   font-family: var(--sans);
-  font-size: 0.74rem;
+  font-size: 0.78rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
 }
 
 .section-title {
-  font-size: clamp(1.6rem, 3vw, 1.95rem);
-  margin-bottom: 1.5rem;
+  font-size: clamp(2rem, 4vw, 2.4rem);
+  margin-bottom: var(--s-3);
+}
+
+.section-lede {
+  font-family: var(--serif);
+  font-size: clamp(1.2rem, 2.5vw, 1.45rem);
+  line-height: 1.4;
+  max-width: 34ch;
+  margin-bottom: var(--s-3);
 }
 
 /* ---------- hero ---------- */
 .hero {
-  padding-top: clamp(2.5rem, 6vw, 4rem);
+  padding-top: clamp(3rem, 8vw, 6.5rem);
+  padding-bottom: var(--section);
+}
+
+.hero .container {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.65fr);
+  gap: clamp(2rem, 6vw, 4.5rem);
+  align-items: start;
 }
 
 .hero h1 {
-  font-size: clamp(2.5rem, 7vw, 4.25rem);
-  line-height: 1.04;
-  margin-bottom: 1.5rem;
+  font-size: clamp(2.6rem, 6.5vw, 4.6rem);
+  font-weight: 300;
+  line-height: 1.03;
+  letter-spacing: -0.015em;
+  margin-bottom: 1.75rem;
 }
 
 .hero .lede {
-  font-size: 1.15rem;
+  font-size: 1.2rem;
+  line-height: 1.55;
   color: var(--muted);
-  margin-bottom: 2rem;
+  margin-bottom: 2.25rem;
+  max-width: 56ch;
 }
 
-.cta {
-  display: inline-flex;
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1rem 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.hero-cta .alt {
+  font-size: 0.98rem;
+  color: var(--muted);
+}
+
+.credentials-strip {
+  font-size: 0.82rem;
   font-weight: 500;
-  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  max-width: none;
 }
 
-.cta .arrow {
-  transition: transform 0.15s ease;
+.credentials-strip .cred-item {
+  white-space: nowrap;
 }
 
-.cta:hover .arrow {
-  transform: translateX(3px);
+.credentials-strip .sep {
+  color: var(--rule);
+  margin-inline: 0.4rem;
 }
 
-/* ---------- "what I do" three columns ---------- */
+/* keep the second hero sentence on its own single line where space allows */
+@media (min-width: 821px) {
+  .no-wrap-wide {
+    white-space: nowrap;
+  }
+}
+
+.hero-portrait {
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+  filter: url(#duotone);
+  justify-self: end;
+}
+
+/* ---------- "work with me" three columns ---------- */
 .offer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  margin-top: 2.5rem;
+  gap: var(--s-3);
+  margin-top: var(--s-3);
 }
 
 .offer .item {
@@ -196,9 +307,9 @@ section:first-of-type {
 }
 
 .offer h3 {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   color: var(--accent);
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.65rem;
 }
 
 .offer p {
@@ -207,36 +318,68 @@ section:first-of-type {
 }
 
 .closing {
-  margin-top: 2.5rem;
+  margin-top: var(--s-3);
 }
 
-/* ---------- prose blocks (approach / about) ---------- */
+/* ---------- prose blocks ---------- */
 .prose p + p {
   margin-top: 1.1rem;
 }
 
-/* about: portrait beside bio */
-.about-grid {
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 2.5rem;
-  align-items: start;
+.prose .current-role {
+  border-left: 2px solid var(--accent);
+  padding-left: 1.25rem;
 }
 
-.portrait {
-  width: 100%;
-  height: auto;
-  border-radius: 2px;
+/* ---------- pull quote (the page's set piece) ---------- */
+.pull-quote {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(1.7rem, 4.5vw, 2.6rem);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  max-width: 26ch;
+  margin-block: clamp(2.5rem, 6vw, 4.5rem);
+  color: var(--ink);
+}
+
+.pull-quote::before {
+  content: "";
   display: block;
-  filter: grayscale(100%);
+  width: 3.5rem;
+  border-top: 2px solid var(--accent);
+  margin-bottom: 1.5rem;
+}
+
+/* ---------- credentials list (about) ---------- */
+.creds {
+  list-style: none;
+  padding: 0;
+  margin-top: var(--s-3);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 var(--s-3);
+}
+
+.creds li {
+  padding-block: 0.85rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.95rem;
+}
+
+.creds .what {
+  display: block;
+  font-weight: 500;
+}
+
+.creds .where {
+  display: block;
+  color: var(--muted);
+  font-size: 0.88rem;
 }
 
 /* ---------- publications ---------- */
-.intro {
-  margin-bottom: 2rem;
-  color: var(--muted);
-}
-
 .pubs {
   list-style: none;
   padding: 0;
@@ -246,7 +389,7 @@ section:first-of-type {
   display: grid;
   grid-template-columns: 3.5rem 1fr;
   gap: 1rem;
-  padding-block: 1rem;
+  padding-block: 1.25rem;
   border-top: 1px solid var(--rule);
   font-size: 0.96rem;
 }
@@ -265,19 +408,49 @@ section:first-of-type {
   max-width: 70ch;
 }
 
+.pubs .gloss {
+  display: block;
+  margin-top: 0.4rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.pubs-more {
+  margin-top: var(--s-3);
+  font-size: 0.97rem;
+}
+
 /* ---------- contact ---------- */
+.contact {
+  background: var(--bg-tint);
+}
+
+.contact .section-title {
+  margin-bottom: var(--s-2);
+}
+
+.contact-email {
+  display: inline-block;
+  font-family: var(--serif);
+  font-size: clamp(1.5rem, 4.5vw, 2.6rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin-block: var(--s-3) var(--s-2);
+  word-break: break-word;
+}
+
 .contact-lines {
-  margin-top: 1.5rem;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 0.6rem;
-  font-size: 1.1rem;
+  font-size: 1.02rem;
 }
 
 /* ---------- footer ---------- */
 .site-footer {
   border-top: 1px solid var(--rule);
-  padding-block: 2rem;
+  padding-block: var(--s-3);
   font-size: 0.88rem;
   color: var(--muted);
 }
@@ -305,8 +478,74 @@ section:first-of-type {
   color: var(--accent);
 }
 
+/* ---------- reveal on scroll ---------- */
+/* Elements are visible by default; the .js class (set inline in <head>) opts
+   them into the entrance transition so nothing is hidden without JavaScript. */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 /* ---------- responsive ---------- */
+@media (max-width: 820px) {
+  .hero {
+    padding-top: clamp(2rem, 6vw, 3rem);
+  }
+
+  .hero .container {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.75rem;
+  }
+
+  .hero h1 {
+    margin-bottom: 1.25rem;
+  }
+
+  .hero .lede {
+    font-size: 1.1rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .hero-cta {
+    margin-bottom: 2rem;
+  }
+
+  .hero-portrait {
+    max-width: 150px;
+    justify-self: start;
+    order: -1;
+  }
+}
+
 @media (max-width: 640px) {
+  .nav {
+    display: none;
+  }
+
+  /* stack the credential strip as its own lines instead of separator-wrapping */
+  .credentials-strip .cred-item {
+    display: block;
+    white-space: normal;
+  }
+
+  .credentials-strip .sep {
+    display: none;
+  }
+
   .offer {
     grid-template-columns: 1fr;
     gap: 1.75rem;
@@ -324,17 +563,12 @@ section:first-of-type {
     border-top: 0;
   }
 
+  .creds {
+    grid-template-columns: 1fr;
+  }
+
   .pubs li {
     grid-template-columns: 1fr;
     gap: 0.25rem;
-  }
-
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .portrait {
-    max-width: 160px;
   }
 }
