@@ -1,0 +1,10 @@
+---
+// The identity's three glyphs. They are decorative (aria-hidden); the words beside them carry the meaning.
+//   square = what is made dependable   (ink)
+//   circle = where judgement acts       (vermilion)
+//   both   = the two designed together  (the mark)
+const { kind = 'both', class: cls = '' } = Astro.props;
+---
+{kind === 'square' && <svg class={`glyph glyph-square ${cls}`} viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect class="g-square" x="2" y="2" width="20" height="20"/></svg>}
+{kind === 'circle' && <svg class={`glyph glyph-circle ${cls}`} viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle class="g-circle" cx="12" cy="12" r="10"/></svg>}
+{kind === 'both' && <svg class={`glyph glyph-both ${cls}`} viewBox="0 0 38 24" aria-hidden="true" focusable="false"><rect class="g-square" x="2" y="2" width="20" height="20"/><circle class="g-circle" cx="26" cy="12" r="10"/></svg>}

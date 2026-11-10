@@ -1,0 +1,48 @@
+---
+import Base from '../../layouts/Base.astro';
+import Glyph from '../../components/Glyph.astro';
+import Icon from '../../components/Icon.astro';
+import { work } from '../../data/work';
+export function getStaticPaths(){ return work.map(item => ({ params: { slug: item.slug }, props: { item } })); }
+const { item } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+<Base title={`${item.title} | Dr Finlay McCall`} description={item.summary}>
+<article class="container case">
+  <a class="back" href={`${base}/#work`}><Icon kind="back"/> All selected work</a>
+
+  <header class="case-head">
+    <p class="eyebrow">{item.category} / {item.number}</p>
+    <h1>{item.title}</h1>
+    <p class="lede">{item.summary}</p>
+  </header>
+
+  <!-- Title block: what stage the work is at and what evidence a reader can check. Promoted from a side column. -->
+  <aside class="titleblock">
+    <div class="tb-label">
+      <h2 class="small-title">Status & evidence</h2>
+      <span class="status">{item.status}</span>
+    </div>
+    <p class="tb-evidence">{item.evidence}</p>
+    {item.links.length > 0 && <ul class="source-links">{item.links.map(([label, url]) => <li><a href={url}>{label} <Icon kind="out"/></a></li>)}</ul>}
+  </aside>
+
+  <div class="case-body">
+    <section class="spec"><h2>The purpose</h2><p>{item.context}</p></section>
+    <section class="spec"><h2>My contribution</h2><p>{item.role}</p></section>
+
+    <!-- The philosophy as page structure: the system and the judgement, side by side, in every case. -->
+    <div class="pair">
+      <section class="pair-system"><h2><Glyph kind="square"/><span>The supporting system</span></h2><p>{item.system}</p></section>
+      <section class="pair-judgement"><h2><Glyph kind="circle"/><span>Where human judgement matters</span></h2><p>{item.judgement}</p></section>
+    </div>
+
+    <section class="spec"><h2>What was delivered</h2><p>{item.outcome}</p></section>
+  </div>
+
+  <div class="case-end">
+    <h2><Glyph kind="both"/><span>Systems and capability, designed together.</span></h2>
+    <a class="button" href={`${base}/#contact`}>Discuss your work <Icon kind="next"/></a>
+  </div>
+</article>
+</Base>

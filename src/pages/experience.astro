@@ -1,0 +1,37 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+<Base title="Experience & research | Dr Finlay McCall">
+<article class="container case">
+  <a class="back" href={`${base}/#experience`}><Icon kind="back"/> Home</a>
+
+  <header class="case-head case-head-portrait">
+    <div>
+      <p class="eyebrow">Experience & research</p>
+      <h1>From learning design<br/>to human–AI systems.</h1>
+      <p class="lede">A continuing practice of designing better processes and developing the people who use them.</p>
+    </div>
+    <img class="experience-portrait" src={`${base}/finlay-mccall.jpg`} alt="Dr Finlay McCall" width="450" height="450"/>
+  </header>
+
+  <aside class="titleblock titleblock-quals">
+    <div class="tb-label"><h2 class="small-title">Qualifications</h2></div>
+    <div class="quals">
+      <p>PhD in Education<br/>University of Canberra, 2025</p>
+      <p>Master of Education (TESOL)<br/>University of Sydney</p>
+      <p>Cambridge DELTA<br/>CELTA Teacher Trainer</p>
+    </div>
+    <ul class="source-links"><li><a data-email data-email-subject="CV request" href={`${base}/#contact`}>Request my current CV <Icon kind="out"/></a></li></ul>
+  </aside>
+
+  <div class="case-body">
+    <section class="spec"><h2>Research into practice</h2><div><p>My doctorate investigated how curriculum and course design can prepare people for human–AI collaboration. It connects expert needs analysis, design principles and field-informed course design.</p><a class="text-link" href="https://researchprofiles.canberra.edu.au/en/studentTheses/anticipating-curriculum-and-course-design-for-humanai-collaborati/">Read the doctoral research <Icon kind="out"/></a></div></section>
+    <section class="spec"><h2>Teaching, assessment and capability</h2><div><p>My experience spans academic English, learning support, teacher development, assessment and action research. At Navitas, e-Mentor work combined support for teachers with improvements to administrative data and reporting. Work at UTS: INSEARCH and a secondment to SILC at Shanghai University connected assessment, teacher development and inquiry into classroom practice.</p><p>A 2019 peer-feedback intervention at SILC combined instructor modelling, peer and self-review, revision and tutorials with 31 students. Evaluation drew on participation, surveys, interviews and reflection. Earlier microblogging work developed through three action-research cycles.</p></div></section>
+    <section class="spec"><h2>Current project work</h2><div><p>At the University of Canberra, I contribute project management and research assistance to a study of teachers’ generative AI use. My work spans research analysis, translation into practical resources and symposium organisation, alongside the wider project team.</p><a class="text-link" href={`${base}/work/symposium-delivery/`}>See the symposium work <Icon kind="next"/></a></div></section>
+    <section class="spec"><h2>Working with AI agents</h2><div><p>I use agents to support implementation, research and creative production. My role is to frame the work, design the learning and operating approach, inspect evidence, make decisions and take responsibility for what is released.</p><p>The projects make that division of labour explicit. Technical tests, source traceability and human approval are part of the design. A working prototype is distinguished from an evaluated intervention.</p></div></section>
+    <section class="spec"><h2>Selected research</h2><div><p>Coauthor: <em>A model of symbiomemesis: machine education and communication as pillars for human-autonomy symbiosis.</em> Philosophical Transactions of the Royal Society A, 2021.</p><a class="text-link" href="https://doi.org/10.1098/rsta.2020.0364">Read the paper <Icon kind="out"/></a></div></section>
+  </div>
+</article>
+</Base>
