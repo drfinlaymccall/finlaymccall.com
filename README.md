@@ -215,11 +215,18 @@ npm run preview  # preview the production build locally
 
 ```
 src/
-  pages/index.astro     the whole page
-  styles/global.css     all styles; palette, type, and spacing live in :root variables
+  layouts/Base.astro        page shell: head tags, header, footer, email script
+  pages/index.astro         home page
+  pages/experience.astro    experience and research
+  pages/work/[slug].astro   one template for every case study
+  data/work.ts              case-study copy; one entry per case
+  components/Views.astro    the three diagrams on the home page
+  components/Glyph.astro    the square, circle and combined mark
+  components/Icon.astro     the four directional icons
+  styles/global.css         all styles; colour, type and spacing tokens live in :root
 public/
   favicon.svg
-  finlay-mccall.jpg     portrait (duotoned at render time by an inline SVG filter)
+  finlay-mccall.jpg     portrait (shown in greyscale by a CSS filter)
   og.png                social sharing image (1200x630)
   robots.txt
 astro.config.mjs        site URL and sitemap integration
@@ -227,15 +234,16 @@ astro.config.mjs        site URL and sitemap integration
 
 ### Editing content
 
-All copy lives in `src/pages/index.astro`. To retune the look (colours, fonts, spacing),
-edit the `:root` variables at the top of `src/styles/global.css`. The site uses Spectral
-(serif headings) and Inter (sans body), self-hosted via `@fontsource` packages imported
-at the top of `index.astro`.
+Page copy lives in the files under `src/pages/`, and case-study copy in `src/data/work.ts`.
+To retune the look (colours, fonts, spacing), edit the `:root` variables at the top of
+`src/styles/global.css`. The site uses Inter (sans) for headings and body, and Spectral
+italic for the emphasised line of each heading. Both are self-hosted via `@fontsource`
+packages imported at the top of `src/layouts/Base.astro`.
 
 ### Contact email
 
 The address `hi@finlaymccall.com` is never written as plain text in the markup. It is
-assembled at runtime by a small inline script (see the bottom of `index.astro`), which
+assembled at runtime by a small inline script (see the bottom of `src/layouts/Base.astro`), which
 defeats most automated harvesting. Cloudflare email obfuscation adds a second layer.
 
 Mail is handled with a free setup: Cloudflare Email Routing forwards inbound mail to a

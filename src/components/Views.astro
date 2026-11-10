@@ -1,0 +1,61 @@
+---
+// Three views of one practice.
+// Each view shows ONE kind of relationship with ONE visual grammar, so they cannot be read as each other:
+//   1. Setting   nested frames   = containment (layers, not stages). No arrows.
+//   2. Supports  square + circle = two different kinds of support, overlapping around people. No arrows.
+//   3. Cycle     two loops       = design and evaluation meeting in enactment. The only arrowhead on the site's diagrams.
+// The vermilion dot (people + judgement) is the constant: it sits at the centre of all three.
+// All wording is the existing diagram copy. Nothing has been added.
+import Glyph from './Glyph.astro';
+---
+<figure class="views container" aria-labelledby="views-title" aria-describedby="views-desc">
+  <p class="sr-only" id="views-title">Human capability, in context</p>
+  <p class="sr-only" id="views-desc">People and judgement sit within practice, work and opportunity, and the wider social, organisational and technical context. Automation and training support repeatable performance; intelligence and education support discovery and adaptation. Design and evaluation meet through enactment: learning from use informs what is designed next. These practices and contextual layers are complementary, not stages in a sequence.</p>
+
+  <!-- View 1: the setting. Plain HTML boxes so the labels stay at real text size on every screen. -->
+  <div class="view view-setting">
+    <div class="frame">
+      <span class="frame-label context-label"><span class="nw">SOCIAL · ORGANISATIONAL ·</span> <span class="nw">TECHNICAL CONTEXT</span></span>
+      <div class="frame">
+        <span class="frame-label context-label">WORK &amp; OPPORTUNITY</span>
+        <div class="frame">
+          <span class="frame-label context-label">PRACTICE</span>
+          <div class="person">
+            <span class="dot" aria-hidden="true"></span>
+            <span class="people-title">People</span>
+            <span class="people-sub">+ judgement</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- View 2: the two supports. The drawing carries no text; the key beneath it does. -->
+  <svg class="view view-supports" viewBox="0 0 275 164" width="275" height="164" aria-hidden="true" focusable="false">
+    <rect class="v-ink" x="1" y="2" width="160" height="160"/>
+    <circle class="v-mark" cx="194" cy="82" r="80"/>
+    <circle class="v-dot" cx="137.5" cy="82" r="11"/>
+  </svg>
+  <div class="key diagram-legend">
+    <div>
+      <p class="key-term"><Glyph kind="square"/><span><span class="practice-label">Automation</span> <span class="practice-sub">&amp; training</span></span></p>
+      <p class="key-text"><strong>Make performance dependable.</strong> <span>Repeat and refine. Free capacity.</span></p>
+    </div>
+    <div>
+      <p class="key-term"><Glyph kind="circle"/><span><span class="practice-label">Intelligence</span> <span class="practice-sub">&amp; education</span></span></p>
+      <p class="key-text"><strong>Find new possibilities.</strong> <span>Discover, judge and act on opportunities.</span></p>
+    </div>
+  </div>
+
+  <!-- View 3: the cycle. Two loops tangent at the dot. One arrowhead, its tip touching the dot. -->
+  <svg class="view view-cycle" viewBox="0 0 306 168" width="306" height="168" focusable="false">
+    <circle class="v-ink" cx="77" cy="77" r="76"/>
+    <circle class="v-ink" cx="229" cy="77" r="76"/>
+    <polygon class="v-head" points="146,52 160,52 153,66"/>
+    <circle class="v-dot" cx="153" cy="77" r="11"/>
+    <text x="77" y="82" text-anchor="middle" class="enact-label">Design</text>
+    <text x="153" y="163" text-anchor="middle" class="enact-label enact-centre">Enact</text>
+    <text x="229" y="82" text-anchor="middle" class="enact-label">Evaluate</text>
+  </svg>
+  <figcaption>Design and evaluation meet in practice.<br/>What we learn changes what we build next.</figcaption>
+</figure>

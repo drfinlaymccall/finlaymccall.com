@@ -1,0 +1,14 @@
+---
+// Directional marks. Each is ONE path, so the head cannot detach from the shaft.
+// Meaning is fixed across the site:
+//   down = jumps further down this page      next = goes to another page on this site
+//   back = returns to the previous level     out  = leaves this site (external link or email)
+const { kind = 'next' } = Astro.props;
+const d = {
+  next: 'M2.5 8h11M9 3.5 13.5 8 9 12.5',
+  back: 'M13.5 8h-11M7 3.5 2.5 8 7 12.5',
+  down: 'M8 2.5v11M3.5 9 8 13.5 12.5 9',
+  out: 'M4 12 12 4M5.5 4H12v6.5',
+}[kind];
+---
+<svg class={`icon icon-${kind}`} viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d={d}/></svg>
