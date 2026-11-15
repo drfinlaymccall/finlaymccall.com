@@ -212,12 +212,18 @@ h2 { font-size: clamp(1.75rem, 4vw, 3.125rem); line-height: 1.08; letter-spacing
 .offers article { border-top: var(--stroke) solid var(--ink); padding-top: var(--s4); }
 .offers h3 { font-size: 1.375rem; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: var(--s3); }
 .offers p { font-size: 1rem; }
+.engage-invitation { margin-top: var(--s5); }
 
 .contact { background: var(--ink); color: var(--on-ink-2); }
 .contact .eyebrow { color: var(--on-ink-2); margin-bottom: var(--s5); }
 .contact h2 { color: var(--paper); font-size: clamp(2.125rem, 6vw, 4.6rem); line-height: 1.04; letter-spacing: -0.04em; }
 .contact h2 em { color: var(--mark-on-ink); }
 .contact p:not(.eyebrow) { margin-block: var(--s5) var(--s6); color: var(--paper); font-size: 1.125rem; }
+.contact p { max-width: 40em; }
+.contact p.contact-alternative { margin-bottom: 0; font-size: 1rem; color: var(--on-ink-2); }
+.contact-alternative a { color: var(--paper); overflow-wrap: anywhere; }
+.contact .button, .case-contact .button { max-width: 100%; padding-block: var(--s4); line-height: 1.4; }
+.case-contact { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s4) var(--s5); }
 
 /* 9. Case study and experience pages ------------------------------------------ */
 .case { padding-block: var(--s5) var(--s9); }
