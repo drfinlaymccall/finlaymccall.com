@@ -1,1 +1,1 @@
-export const bookingUrl = 'https://calendar.app.google/YHjVGRhVJ3cr67qR6';
+export const bookingUrl = 'https://calendar.app.google/FHRQ5DA8SQW3of5p8';
